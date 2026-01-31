@@ -5,7 +5,7 @@
 ### Step 1: Install Dependencies (1 min)
 
 ```bash
-cd /home/rajan/track-detector
+cd /home/rajan/Tracely
 
 # Frontend
 cd frontend && npm install && cd ..
@@ -37,14 +37,14 @@ cp .env.example .env
 
 **Terminal 1: Backend**
 ```bash
-cd /home/rajan/track-detector/backend
+cd /home/rajan/Tracely/backend
 npm run dev
 # Output: 🔐 Tracely Backend running on http://localhost:3000
 ```
 
 **Terminal 2: Frontend**
 ```bash
-cd /home/rajan/track-detector/frontend
+cd /home/rajan/Tracely/frontend
 npm run dev
 # Output: VITE v5.0.0  ready in 500 ms
 # ➜  Local:   http://localhost:5173/
@@ -58,7 +58,7 @@ npm run dev
 2. Navigate to `chrome://extensions/`
 3. Enable **Developer mode** (toggle in top right corner)
 4. Click **Load unpacked** button
-5. Browse to and select: `/home/rajan/track-detector/extension`
+5. Browse to and select: `/home/rajan/Tracely/extension`
 6. Extension appears with Tracely icon in toolbar ✅
 
 **Verify Extension Works:**
@@ -151,7 +151,7 @@ mongosh "mongodb://localhost:27017/privacy-lens"
 ## File Structure
 
 ```
-track-detector/
+Tracely/
 ├── frontend/          # React Dashboard (port 5173)
 │   ├── src/
 │   │   ├── components/   # Reusable UI components
@@ -232,4 +232,4 @@ A: It's a hackathon MVP! For production:
 
 ---
 
-Ready? → `cd /home/rajan/track-detector && npm run dev` 🚀
+Ready? → `cd /home/rajan/Tracely && npm run dev` 🚀
