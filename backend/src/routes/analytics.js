@@ -11,6 +11,8 @@ router.get('/top-trackers', async (req, res) => {
     const trackers = await Tracker.find()
       .sort({ sightingCount: -1 })
       .limit(10)
+      .select('domain category risk sightingCount')
+      .lean()
 
     res.json({
       success: true,
@@ -58,8 +60,8 @@ router.get('/trends', async (req, res) => {
 // GET /analytics/network
 router.get('/network', async (req, res) => {
   try {
-    const sites = await Site.find().limit(20)
-    const trackers = await Tracker.find().limit(20)
+    const sites = await Site.find().limit(20).select('domain trackerCount').lean()
+    const trackers = await Tracker.find().limit(20).select('domain sightingCount').lean()
 
     const nodes = [
       ...sites.map((site) => ({

@@ -223,7 +223,9 @@ router.get('/', async (req, res) => {
     
     const sites = await Site.find(query)
       .sort({ score: -1 })
-      .limit(50)
+      .limit(100)
+      .select('domain score riskLevel trackerCount uniqueTrackerCount thirdPartyCount lastScanned')
+      .lean()
 
     res.json({
       success: true,
@@ -247,8 +249,9 @@ router.get('/global/stats', async (req, res) => {
   try {
     const sites = await Site.find()
       .sort({ trackerCount: -1 })
-      .limit(50)
+      .limit(100)
       .select('domain score riskLevel trackerCount uniqueTrackerCount lastScanned')
+      .lean()
 
     res.json({
       success: true,

@@ -9,7 +9,9 @@ router.get('/', async (req, res) => {
   try {
     const trackers = await Tracker.find()
       .sort({ sightingCount: -1 })
-      .limit(50)
+      .limit(100)
+      .select('domain category type risk sightingCount firstSeen')
+      .lean()
 
     res.json({
       success: true,

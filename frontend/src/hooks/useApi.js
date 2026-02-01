@@ -25,8 +25,8 @@ export const useSites = (globalMode = false) => {
     // Fetch immediately
     fetchSites(true)
 
-    // Poll every 15 seconds for new data
-    const interval = setInterval(fetchSites, 15000)
+    // Poll every 30 seconds for new data (reduced frequency)
+    const interval = setInterval(fetchSites, 30000)
 
     return () => clearInterval(interval)
   }, [mode])
@@ -70,20 +70,20 @@ export const useTrackers = () => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const fetchTrackers = async () => {
+    const fetchTrackers = async (isInitial = false) => {
       try {
-        setLoading(true)
+        if (isInitial) setLoading(true)
         const response = await privacyAPI.getTrackers()
         setTrackers(response.data.data || [])
       } catch (err) {
         setError(err.message)
         console.error('Error fetching trackers:', err)
       } finally {
-        setLoading(false)
+        if (isInitial) setLoading(false)
       }
     }
 
-    fetchTrackers()
+    fetchTrackers(true)
   }, [])
 
   return { trackers, loading, error }
