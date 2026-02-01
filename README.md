@@ -16,7 +16,7 @@ Try the live demo to explore real tracking data, view analytics, and see full re
 
 Watch our comprehensive tutorial to learn how to use Tracely's extension and dashboard:
 
-https://github.com/user-attachments/assets/tutorial.webm
+https://github.com/rj9884/Tracely/Public/tutorial.mp4
 
 The tutorial covers:
 - Installing and setting up the browser extension
